@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click Speed Calculator | Mouse Click Speed Calculator</title>
+  <meta name="description" content="Calculate your mouse click speed calculator easily with our online Click speed calculator Get accurate results instantly.">
+   
+
+  <style>
+/* Header and Footer styles */
+header, footer {
+    background-color: #2c3e50; /* Shared background color */
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.logo, .footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin-right: auto;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links, .footer-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+     padding: 10px 20px;
+    margin-left: auto;
+}
+
+.nav-links li, .footer-links li {
+    margin-left: 20px;
+}
+
+.nav-links a, .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .footer-links a:hover {
+    color: #3498db;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Footer paragraph alignment */
+footer p {
+    text-align: center;
+    font-size: 1rem;
+    margin: 1rem 0 0;
+}
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+ .nav-links, .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+ .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    .nav-links li, .footer-links li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .logo, .footer-logo {
+        font-size: 1.2rem;
+    }
+  .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links li {
+        margin: 5px 0;
+    }
+}
+ .container1 {
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Prevents it from becoming too large */
+    min-width: 300px; /* Prevents shrinking too much */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Improves readability */
+}
+
+
+/* Button Styles */
+button {
+    width: 100%; /* Makes it more touch-friendly */
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Improves visibility */
+    transition: background 0.3s ease;
+}
+
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Result Display */
+.result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebApplication",
+  "name": "Click Speed Calculator",
+  "alternateName": "Mouse Click Speed Calculato",
+  "url": "https://www.dpianalyzer.online/click-speed-calculator.html",
+  "description": "Test your click speed with our Click Speed Calculator and see how many clicks per second you can achieve.",
+  "applicationCategory": "WebApp",
+  "operatingSystem": "All",
+  "creator": {
+    "@type": "Organization",
+    "name": "DPI Analyzer"
+  },
+  "mainEntityOfPage": "https://www.dpianalyzer.online/click-speed-calculator.html",
+  "manifest": "/manifest.json",
+  "startUrl": "/index.html",
+  "themeColor": "#2c3e50",
+  "backgroundColor": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait"
+}
+</script>
+</head>
+<body>
+   <header>
+    <div class="container">
+        <a href="https://www.dpianalyzer.online/" class="logo">DPI Analyzer</a>
+        <nav>
+            <ul class="nav-links">
+                 <ul class="nav-links">
+ 
+               <li><a href="Dpi-calculator.html">Dpi Calculator</a></li>
+                <li><a href="edpi-calculator.html">eDpi Calculator</a></li>
+                <li><a href="click-speed-calculator.html">Click speed Calculator</a></li>
+                <li><a href="Contact-Us.html">Contact Us</a></li>
+                <li><a href="About-Us.html">About Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<br>
+   
+<div class="container1">
+        <h1>Click Speed Test</h1>
+        <p>Click the button as fast as you can in 5 seconds!</p>
+        <button id="startTest" onclick="startTest()">Start Test</button>
+        <p>Clicks: <span id="clickCount">0</span></p>
+        <button id="clickButton" style="display: none;" onclick="countClick()">Click Me!</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        let isTestActive = false;
+        let timer;
+        
+        function startTest() {
+            clickCount = 0;
+            document.getElementById('clickCount').innerText = clickCount;
+            document.getElementById('result').innerText = "";
+            isTestActive = true;
+
+            // Hide Start Test button and show Click Me button
+            document.getElementById('startTest').style.display = 'none';
+            document.getElementById('clickButton').style.display = 'inline-block';
+
+            timer = setTimeout(() => {
+                isTestActive = false;
+                document.getElementById('clickButton').style.display = 'none'; // Hide Click Me button after test
+                let cps = (clickCount / 5).toFixed(2);
+                document.getElementById('result').innerText = "Your CPS (Clicks Per Second): " + cps;
+
+                // Show Start Test button again for next round
+                document.getElementById('startTest').style.display = 'inline-block';
+            }, 5000);
+        }
+
+        function countClick() {
+            if (isTestActive) {
+                clickCount++;
+                document.getElementById('clickCount').innerText = clickCount;
+            }
+        }
+    </script>
+
+<div id="faq">
+  <h2>Frequently Asked Questions</h2>
+  
+  <div class="faq-item">
+    <h3>How do I calculate DPI?</h3>
+    <p>To calculate DPI, divide the number of pixels moved by the number of inches moved. This gives you the DPI of your mouse or screen.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>What is DPI?</h3>
+    <p>DPI stands for Dots Per Inch and refers to the sensitivity of your mouse or display device. A higher DPI indicates greater sensitivity.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Why is DPI important for gaming?</h3>
+    <p>DPI is crucial in gaming as it determines how fast your cursor or pointer moves. A higher DPI means quicker movement, while a lower DPI offers more precision.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>What is a Click Speed Calculator?</h3>
+    <p>A Click Speed Calculator is a tool that measures how many times you can click your mouse within a specific time limit, usually in seconds.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>How does the Click Speed Test work?</h3>
+    <p>The Click Speed Test starts when you click a designated area on the screen, counting the number of clicks within a set time (e.g., 5 seconds, 10 seconds).</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>What is a good Click Speed?</h3>
+    <p>A good click speed varies, but an average clicker scores between 5-10 clicks per second (CPS). Faster clickers can go beyond 12 CPS.</p>
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Click Speed Calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Click Speed Calculator is a tool that measures how many times you can click your mouse within a specific time limit, usually in seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the Click Speed Test work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Click Speed Test starts when you click a designated area on the screen, counting the number of clicks within a set time (e.g., 5 seconds, 10 seconds)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good Click Speed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A good click speed varies, but an average clicker scores between 5-10 clicks per second (CPS). Faster clickers can go beyond 12 CPS."
+      }
+    }
+  ]
+}
+</script>
+ 
+  <footer>
+    <div class="container">
+        <a href="https://www.dpianalyzer.online/" class="footer-logo">DPI Analyzer</a>
+        <nav>
+            <ul class="footer-links">
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="Terms-and-condition.html">Terms of Service</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2025 DPI Analyzer Tool. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>
