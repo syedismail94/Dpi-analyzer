@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPI Analyzer</title>
+    <meta name="description" content="Accurately measure and analyze DPI for your mouse, images, and monitor with our free online DPI Analyzer Tool. Get precise Real results instantly.">
+    <meta name="keywords" content="DPI analyzer, mouse DPI analyzer, image DPI, monitor DPI, DPI measurement tool, Dpi checker, dpi calculator, dpi tester, mouse dpi checker, mouse dpi tester, real mouse dpi">
+   <link rel="canonical" href="">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<script>
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qet866skxq");
+</script>
+ <style>
+ /* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Header and Footer styles */
+header, footer {
+    background-color: #2c3e50; /* Shared background color */
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.logo, .footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin-right: auto;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links, .footer-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+     padding: 10px 20px;
+    margin-left: auto;
+}
+
+.nav-links li, .footer-links li {
+    margin-left: 20px;
+}
+
+.nav-links a, .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .footer-links a:hover {
+    color: #3498db;
+}
+
+/* Typography */
+h1, h2 {
+    color: #2c3e50;
+}
+
+/* Component styles */
+.analyzer {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#mouseBox {
+    width: 100%;
+    height: 300px;
+    background-color: #ecf0f1;
+    position: relative;
+    cursor: crosshair;
+}
+
+#dot {
+    width: 10px;
+    height: 10px;
+    background-color: #3498db;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* How to use section */
+.how-to-use {
+    background-color: #e8f4fd;
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.how-to-use h3 {
+    margin-top: 0;
+    color: #3498db;
+}
+
+/* Footer paragraph alignment */
+footer p {
+    text-align: center;
+    font-size: 1rem;
+    margin: 1rem 0 0;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links, .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links li, .footer-links li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo, .footer-logo {
+        font-size: 1.2rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .analyzer {
+        padding: 15px;
+    }
+
+    #mouseBox {
+        height: 150px;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 4px;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links li {
+        margin: 5px 0;
+    }
+}
+       .centered-title {
+    text-align: center; /* Centers the text horizontally */
+    margin: 0 auto; /* Ensures proper alignment */
+    display: flex; /* Flexbox for better alignment control */
+    justify-content: center; /* Centers horizontally within flex container */
+    align-items: center; /* Centers vertically (if a height is specified) */
+    height: 100%; /* Optional: Set the height of the container for vertical centering */
+}
+       /* Adds spacing above and below sections */
+.spaced-section {
+    margin: 40px 0; /* Adds 40px of space above and below the section */
+    padding: 20px; /* Adds 20px of padding inside the section */
+    background-color: #fff; /* Optional: Set a background color */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+       /* Result container styles */
+.result-container {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Table styles for result display */
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.result-table th,
+.result-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.result-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Uploaded image styling */
+.uploaded-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .result-table th, .result-table td {
+        padding: 8px;
+    }
+
+    .uploaded-image {
+        margin-top: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .result-table th, .result-table td {
+        padding: 6px;
+        font-size: 0.9rem;
+    }
+
+    .uploaded-image {
+        margin-top: 5px;
+    }
+}
+ .dpi-analyzer, .mouse-dpi, .image-dpi, .monitor-dpi {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+         .content-block {
+            margin: 15px 0;
+            padding: 10px;
+            background: #eef;
+            border-radius: 5px;
+        }
+        strong {
+            color: #222;
+        }
+</style>
+     <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DPI Analyzer Tool",
+      "url": "",
+      "description": "Accurately measure and analyze DPI for your mouse, images, and monitor with our free online DPI Analyzer Tool.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+     </script>
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How accurate is this tool?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While this tool provides a good estimate, factors like mouse acceleration and screen resolution can affect accuracy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is DPI??",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DPI, or Dots Per Inch, is a way to measure how many tiny dots or pixels fit into one inch of a screen, print, or digital image. It’s a simple way to describe how sharp or clear something looks, whether it’s a display, a printed photo, or an image.."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is DPI important?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DPI affects cursor speed and precision for mice, image quality for printing, and display sharpness for monitors."
+        }
+      }
+    ]
+  }
+  </script>
+
+</head>
+<body>
+   <header>
+    <div class="container">
+        <a href="https://www.dpianalyzer.online/" class="logo">DPI Analyzer</a>
+        <nav>
+            <ul class="nav-links">
+    
+ <li><a href="Dpi-calculator.html">Dpi Calculator</a></li>
+                <li><a href="edpi-calculator.html">eDpi Calculator</a></li>
+                <li><a href="click-speed-calculator.html">Click speed Calculator</a></li>
+                <li><a href="Contact-Us.html">Contact Us</a></li>
+                <li><a href="About-Us.html">About Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="mouse-dpi" class="analyzer spaced-section">
+            <h1 class="centered-title">Mouse DPI Analyzer</h1>
+            <p><b>Mouse DPI Analyzer</b>: Click and drag your mouse within the box below. Release the mouse button to measure how far you moved and assess your mouse's sensitivity. You can drag in any direction—left, right, up, or down. Once you release the button, the result will be calculated and displayed. Ready for your next movement, Avoid double-clicking, as it may cause an automatic update. For accurate results, press and release the mouse button once.</p>
+            <div id="mouseBox">
+                <div id="dot"></div>
+            </div>
+            <table id="resultTable">
+                <thead>
+                    <tr>
+                        <th>Measurement</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Distance (pixels)</td>
+                        <td id="distancePixels">0</td>
+                    </tr>
+                    <tr>
+                        <td>DPI</td>
+                        <td id="dpiResult">0</td>
+                    </tr>
+                    <tr>
+                        <td>Duration (seconds)</td>
+                        <td id="duration">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+            <section class="dpi-analyzer">
+        <h2>Why Do You Need a DPI Analyzer?</h2>
+        <p>A DPI (Dots Per Inch) analyzer helps users measure the sensitivity of their mouse. This is especially crucial for gamers, graphic designers, and professionals who require precise cursor movements.</p>
+        <h2>Gaming</h2>
+        <div class="content-block">
+            <p>High DPI settings enable swift movements, while lower DPI allows for accuracy in shooting games.</p>
+        </div>
+        <h2>Graphic Design</h2>
+        <div class="content-block">
+            <p>Ensures fine control over cursor movements, improving design precision.</p>
+        </div>
+        <h2>Everyday Use</h2>
+        <div class="content-block">
+            <p>Adjusting DPI can improve comfort and efficiency based on your screen resolution.</p>
+        </div>
+    </section>
+
+    <section class="mouse-dpi">
+        <h2>Understanding Mouse DPI</h2>
+        <p>Mouse DPI refers to the measurement of how sensitive a mouse is. A higher DPI means the cursor moves further with minimal hand movement.</p>
+        <h2>Better Control</h2>
+        <div class="content-block">
+            <p>Allows customization based on personal preferences.</p>
+        </div>
+        <h2>Improved Gaming Experience</h2>
+        <div class="content-block">
+            <p>Competitive gamers adjust DPI for different scenarios.</p>
+        </div>
+        <h2>Productivity</h2>
+        <div class="content-block">
+            <p>Enhances efficiency by optimizing speed and accuracy.</p>
+        </div>
+    </section>
+
+    <div class="container">
+    <h2 class="centered-title">DPI Analyzer Tool</h2>
+
+    <div class="how-to-use">
+        <h2 class="centered-title">How to Use This Tool</h2>
+        <ol>
+            <li><strong>Mouse DPI:</strong> Click and drag your mouse inside the box below. Let go of the mouse button to see how far you moved and how sensitive your mouse is. Drag in any direction—left to right, right to left, upwards, or downwards. When you release the button, the result is calculated and displayed. It will automatically reset to zero, ready for your next movement. If you click double on it that time also it will update automatically thats why press one time and release and you get you accurate DPI.</li>
+            <li><strong>Image DPI:</strong> Pick a picture from your computer and upload it here. The tool will check how sharp and detailed the picture is.</li>
+            <li><strong>Monitor DPI:</strong> The tool automatically figures out how clear your screen is. You don’t need to do anything for this one!</li>
+            <li><strong>Compare Results:</strong> Check how your mouse, pictures, or screen DPI compares to popular devices listed in the table below.</li>
+        </ol>
+    </div>
+</div>
+
+          <div id="image-dpi" class="analyzer spaced-section">
+    <h2 class="centered-title">Image DPI Analyzer</h2>
+    <p class="centered-title">Upload an image to analyze its DPI:</p>
+    <input type="file" id="imageUpload" class="centered-title" accept="image/*">
+    <div id="imageResult" class="result-container">
+        <!-- Table for results will appear here -->
+    </div>
+</div>
+    <section class="image-dpi">
+        <h2>Why Do You Need an Image DPI Analyzer?</h2>
+        <p>Image DPI (Dots Per Inch) determines the resolution and quality of an image, which is crucial for printing, digital display, and professional design work.</p>
+        <h2>Printing Quality</h2>
+        <div class="content-block">
+            <p>Higher DPI ensures crisp and clear prints without pixelation.</p>
+        </div>
+        <h2>Digital Display</h2>
+        <div class="content-block">
+            <p>Optimizing DPI helps images look sharp on different screen resolutions.</p>
+        </div>
+        <h2>Professional Design</h2>
+        <div class="content-block">
+            <p>Graphic designers adjust image DPI for high-quality artwork and photography.</p>
+        </div>
+    </section>
+
+
+        <div id="monitor-dpi" class="analyzer">
+            <h2 class="centered-title">Monitor DPI Analyzer</h2>
+            <div id="monitorResult" class="centered-title"></div>
+        </div>
+
+     
+        <section class="monitor-dpi">
+        <h2>Why Do You Need a Monitor DPI Analyzer?</h2>
+        <p>Monitor DPI (Dots Per Inch) affects how content appears on a screen. It influences clarity, sharpness, and overall display quality, making it crucial for gaming, design, and general usage.</p>
+        <h2>Gaming Experience</h2>
+        <div class="content-block">
+            <p>A higher monitor DPI enhances visual details, making games look more immersive and lifelike.</p>
+        </div>
+        <h2>Professional Design & Editing</h2>
+        <div class="content-block">
+            <p>Graphic designers and video editors require high DPI monitors for accurate color and detail representation.</p>
+        </div>
+        <h2>Comfort & Readability</h2>
+        <div class="content-block">
+            <p>Proper DPI settings reduce eye strain and improve readability for prolonged screen usage.</p>
+        </div>
+    </section>
+   <div id="dpi-comparison" class="analyzer">
+           <h2 class="centered-title">Common Device DPIs</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Device</th>
+            <th>DPI</th>
+            <th>Resolution</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>iPhone 12 Pro</td><td>460</td><td>2532x1170</td></tr>
+        <tr><td>Samsung Galaxy S21</td><td>421</td><td>2400x1080</td></tr>
+        <tr><td>iPad Pro 12.9"</td><td>264</td><td>2732x2048</td></tr>
+        <tr><td>MacBook Pro 16"</td><td>226</td><td>3072x1920</td></tr>
+        <tr><td>4K Monitor</td><td>163</td><td>3840x2160</td></tr>
+        <tr><td>Google Pixel 6</td><td>411</td><td>2400x1080</td></tr>
+        <tr><td>Samsung Galaxy Note 20 Ultra</td><td>496</td><td>3088x1440</td></tr>
+        <tr><td>OnePlus 9 Pro</td><td>525</td><td>3216x1440</td></tr>
+        <tr><td>Dell XPS 13</td><td>331</td><td>3840x2400</td></tr>
+        <tr><td>Surface Laptop Studio</td><td>201</td><td>2400x1600</td></tr>
+        <tr><td>iPhone 13 Pro</td><td>460</td><td>2532x1170</td></tr>
+        <tr><td>Samsung Galaxy Z Fold 3</td><td>374</td><td>2208x1768</td></tr>
+        <tr><td>iPad Mini 6</td><td>326</td><td>2266x1488</td></tr>
+        <tr><td>Surface Pro 8</td><td>267</td><td>2880x1920</td></tr>
+        <tr><td>Google Pixelbook Go</td><td>166</td><td>1920x1080</td></tr>
+        <tr><td>LG UltraFine 5K</td><td>218</td><td>5120x2880</td></tr>
+        <tr><td>iMac 27" Retina 5K</td><td>218</td><td>5120x2880</td></tr>
+        <tr><td>HP Spectre x360 14</td><td>267</td><td>3000x2000</td></tr>
+        <tr><td>Razer Blade 15 Advanced</td><td>282</td><td>3840x2160</td></tr>
+        <tr><td>Apple Watch Series 7</td><td>326</td><td>396x484</td></tr>
+        <tr><td>Google Nest Hub</td><td>169</td><td>1280x800</td></tr>
+        <tr><td>Samsung Galaxy Tab S7+</td><td>266</td><td>2800x1752</td></tr>
+        <tr><td>iPhone 14</td><td>460</td><td>2532x1170</td></tr>
+        <tr><td>Google Pixel 7 Pro</td><td>512</td><td>3120x1440</td></tr>
+        <tr><td>Asus ROG Phone 5</td><td>395</td><td>2448x1080</td></tr>
+        <tr><td>Huawei MatePad Pro</td><td>280</td><td>2560x1600</td></tr>
+        <tr><td>Lenovo ThinkPad X1 Nano</td><td>450</td><td>2160x1350</td></tr>
+        <tr><td>Alienware AW3423DW</td><td>109</td><td>3440x1440</td></tr>
+        <tr><td>LG Gram 17</td><td>178</td><td>2560x1600</td></tr>
+        <tr><td>Google Pixel 5</td><td>432</td><td>2340x1080</td></tr>
+        <tr><td>Samsung Galaxy A72</td><td>394</td><td>2400x1080</td></tr>
+        <tr><td>OnePlus Nord 2</td><td>410</td><td>2400x1080</td></tr>
+        <tr><td>Microsoft Surface Duo 2</td><td>401</td><td>2688x1892</td></tr>
+        <tr><td>MacBook Air M2</td><td>227</td><td>2560x1664</td></tr>
+        <tr><td>Lenovo Yoga Slim 7i</td><td>220</td><td>1920x1200</td></tr>
+        <tr><td>Acer Predator Helios 300</td><td>282</td><td>3840x2160</td></tr>
+        <tr><td>HP Omen 15</td><td>282</td><td>3840x2160</td></tr>
+        <tr><td>Apple Studio Display</td><td>218</td><td>5120x2880</td></tr>
+        <tr><td>Samsung Galaxy Tab A7</td><td>224</td><td>2000x1200</td></tr>
+        <tr><td>Google Pixel Slate</td><td>293</td><td>3000x2000</td></tr>
+        <tr><td>Apple iPhone XR</td><td>326</td><td>1792x828</td></tr>
+        <tr><td>Samsung Galaxy S10</td><td>550</td><td>3040x1440</td></tr>
+        <tr><td>Google Pixel 4 XL</td><td>537</td><td>3040x1440</td></tr>
+        <tr><td>LG V60 ThinQ</td><td>395</td><td>2460x1080</td></tr>
+        <tr><td>Huawei P40 Pro</td><td>441</td><td>2640x1200</td></tr>
+        <tr><td>Motorola Edge+</td><td>385</td><td>2340x1080</td></tr>
+        <tr><td>Microsoft Surface Go 3</td><td>217</td><td>1920x1280</td></tr>
+        <tr><td>Dell Alienware m15 R6</td><td>282</td><td>3840x2160</td></tr>
+    </tbody>
+</table>
+        </div>
+
+        <div id="faq" class="analyzer">
+            <h3 class="centered-title">Frequently Asked Questions</h3>
+            <h3>How accurate is this tool?</h3>
+            <p>While this tool provides a good estimate, factors like mouse acceleration and screen resolution can affect accuracy.</p>
+            <h3>Why is DPI important?</h3>
+            <p>DPI affects cursor speed and precision for mice, image quality for printing, and display sharpness for monitors.</p>
+             <h3>What is DPI?</h3>
+            <p>DPI, or Dots Per Inch, is a way to measure how many tiny dots or pixels fit into one inch of a screen, print, or digital image. It’s a simple way to describe how sharp or clear something looks, whether it’s a display, a printed photo, or an image..</p>
+        </div>
+    </div>
+ <script>
+    const mouseBox = document.getElementById('mouseBox');
+    const dot = document.getElementById('dot');
+    const distancePixelsCell = document.getElementById('distancePixels');
+    const dpiResultCell = document.getElementById('dpiResult');
+    const durationCell = document.getElementById('duration');
+
+    let isCalculating = false;
+    let startX, startY, startTime;
+    let totalDistance = 0;
+
+    function resetValues() {
+        totalDistance = 0;
+        distancePixelsCell.textContent = '0';
+        dpiResultCell.textContent = '0';
+        durationCell.textContent = '0';
+        dot.style.left = '0px';
+        dot.style.top = '0px';
+    }
+
+    mouseBox.addEventListener('mousedown', (e) => {
+        isCalculating = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        startTime = performance.now();
+        resetValues();
+        updateDotPosition(e);
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isCalculating) {
+            updateDotPosition(e);
+            calculateDistance(e);
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (isCalculating) {
+            isCalculating = false;
+            displayResult();
+            // Automatic reset has been removed
+        }
+    });
+
+    function updateDotPosition(e) {
+        const boxRect = mouseBox.getBoundingClientRect();
+        let x = e.clientX - boxRect.left;
+        let y = e.clientY - boxRect.top;
+
+        // Clamp the dot within the mouseBox boundaries
+        x = Math.max(0, Math.min(x, boxRect.width));
+        y = Math.max(0, Math.min(y, boxRect.height));
+
+        dot.style.left = `${x}px`;
+        dot.style.top = `${y}px`;
+    }
+
+    function calculateDistance(e) {
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        totalDistance += distance;
+        startX = e.clientX;
+        startY = e.clientY;
+    }
+
+    function displayResult() {
+        const endTime = performance.now();
+        const duration = (endTime - startTime) / 1000; // Duration in seconds
+        const dpi = Math.round(totalDistance / 7.4); // Using 7.4 as the conversion factor
+
+        distancePixelsCell.textContent = totalDistance.toFixed(2);
+        dpiResultCell.textContent = dpi;
+        durationCell.textContent = duration.toFixed(2);
+    }
+
+ // Image DPI Analyzer
+const imageUpload = document.getElementById('imageUpload');
+const imageResult = document.getElementById('imageResult');
+let clearResultTimeout; // To clear timeout if needed
+let updateInterval; // To store the interval ID for automatic updates
+
+// Function to calculate and display image properties
+function displayImageProperties(file) {
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+        const img = new Image();
+
+        img.onload = () => {
+            const SCREEN_DPI = 96; // Assumed screen DPI
+            const widthInInches = img.width / SCREEN_DPI;
+            const heightInInches = img.height / SCREEN_DPI;
+            const diagonalInPixels = Math.sqrt(img.width ** 2 + img.height ** 2);
+            const diagonalInInches = Math.sqrt(widthInInches ** 2 + heightInInches ** 2);
+            const estimatedDPI = diagonalInPixels / diagonalInInches;
+
+            // Display results in a table format
+            imageResult.innerHTML = `
+                <table class="result-table">
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Image Width</td>
+                        <td>${img.width}px</td>
+                    </tr>
+                    <tr>
+                        <td>Image Height</td>
+                        <td>${img.height}px</td>
+                    </tr>
+                    <tr>
+                        <td>Estimated DPI</td>
+                        <td>${estimatedDPI.toFixed(2)}</td>
+                    </tr>
+                </table>
+                <img src="${event.target.result}" alt="Uploaded image" class="uploaded-image">
+            `;
+        };
+
+        img.onerror = () => {
+            imageResult.innerHTML = `<p class="error-message">Failed to load the image. Please try again.</p>`;
+        };
+
+        img.src = event.target.result;
+    };
+
+    reader.onerror = () => {
+        imageResult.innerHTML = `<p class="error-message">Failed to read the file. Please try again.</p>`;
+    };
+
+    reader.readAsDataURL(file);
+}
+
+// Function to clear results
+function clearResults() {
+    clearTimeout(clearResultTimeout); // Clear any existing timeout
+    clearInterval(updateInterval); // Stop automatic updates
+    imageResult.innerHTML = ''; // Clears the content
+}
+
+// Event listener for file input
+imageUpload.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+        clearResults(); // Clear existing results and intervals
+        displayImageProperties(file); // Display new image properties
+
+        // Set automatic update every 10 seconds
+        updateInterval = setInterval(() => {
+            displayImageProperties(file);
+        }, 10000);
+    } else {
+        imageResult.innerHTML = `<p class="error-message">No file selected. Please choose an image file.</p>`;
+    }
+});
+
+
+       // Monitor DPI Analyzer
+const monitorResult = document.getElementById('monitorResult');
+
+function calculateMonitorDPI() {
+    const dpi = window.devicePixelRatio * 96;
+    const width = window.screen.width * window.devicePixelRatio;
+    const height = window.screen.height * window.devicePixelRatio;
+
+    // Display results in a table format
+    monitorResult.innerHTML = `
+        <table class="result-table">
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Estimated Monitor DPI</td>
+                <td>${dpi.toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td>Screen Resolution</td>
+                <td>${width}x${height}</td>
+            </tr>
+        </table>
+    `;
+}
+
+// Initial calculation
+calculateMonitorDPI();
+
+    </script>
+   <footer>
+    <div class="container">
+        <a href="" class="footer-logo">DPI Analyzer</a>
+        <nav>
+            <ul class="footer-links">
+<li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="Terms-and-condition.html">Terms of Service</a></li>
+                                   </ul>
+        </nav>
+        <p>&copy; 2025 DPI Analyzer Tool. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
