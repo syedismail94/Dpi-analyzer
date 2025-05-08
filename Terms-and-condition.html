@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - DPI Analyzer Tool</title>
+    <style>
+ /* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Header and Footer styles */
+header, footer {
+    background-color: #2c3e50; /* Shared background color */
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.logo, .footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin-right: auto;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links, .footer-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+     padding: 10px 20px;
+    margin-left: auto;
+}
+
+.nav-links li, .footer-links li {
+    margin-left: 20px;
+}
+
+.nav-links a, .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .footer-links a:hover {
+    color: #3498db;
+}
+
+/* Typography */
+h1, h2 {
+    color: #2c3e50;
+}
+
+/* Component styles */
+.analyzer {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#mouseBox {
+    width: 100%;
+    height: 300px;
+    background-color: #ecf0f1;
+    position: relative;
+    cursor: crosshair;
+}
+
+#dot {
+    width: 10px;
+    height: 10px;
+    background-color: #3498db;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* How to use section */
+.how-to-use {
+    background-color: #e8f4fd;
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.how-to-use h3 {
+    margin-top: 0;
+    color: #3498db;
+}
+
+/* Footer paragraph alignment */
+footer p {
+    text-align: center;
+    font-size: 1rem;
+    margin: 1rem 0 0;.logo, .footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin-right: auto;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links, .footer-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+     padding: 10px 20px;
+    margin-left: auto;
+}
+
+.nav-links li, .footer-links li {
+    margin-left: 20px;
+}
+
+.nav-links a, .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .footer-links a:hover {
+    color: #3498db;
+}
+
+    
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links, .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links li, .footer-links li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo, .footer-logo {
+        font-size: 1.2rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .analyzer {
+        padding: 15px;
+    }
+
+    #mouseBox {
+        height: 150px;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 4px;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links li {
+        margin: 5px 0;
+    }
+}
+       .centered-title {
+    text-align: center; /* Centers the text horizontally */
+    margin: 0 auto; /* Ensures proper alignment */
+    display: flex; /* Flexbox for better alignment control */
+    justify-content: center; /* Centers horizontally within flex container */
+    align-items: center; /* Centers vertically (if a height is specified) */
+    height: 100%; /* Optional: Set the height of the container for vertical centering */
+}
+       /* Adds spacing above and below sections */
+.spaced-section {
+    margin: 40px 0; /* Adds 40px of space above and below the section */
+    padding: 20px; /* Adds 20px of padding inside the section */
+    background-color: #fff; /* Optional: Set a background color */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+       /* Result container styles */
+.result-container {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Table styles for result display */
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.result-table th,
+.result-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.result-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Uploaded image styling */
+.uploaded-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .result-table th, .result-table td {
+        padding: 8px;
+    }
+
+    .uploaded-image {
+        margin-top: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .result-table th, .result-table td {
+        padding: 6px;
+        font-size: 0.9rem;
+    }
+
+    .uploaded-image {
+        margin-top: 5px;
+    }
+}
+
+
+</style>
+</head>
+<body>
+     <header>
+        <div class="container">
+            <a href="index.html" class="logo">DPI Analyzer</a>
+            <nav>
+                <ul class="nav-links">
+                     <ul class="nav-links">
+                  
+               <li><a href="Dpi-calculator.html">Dpi Calculator</a></li>
+                <li><a href="edpi-calculator.html">eDpi Calculator</a></li>
+                <li><a href="click-speed-calculator.html">Click speed Calculator</a></li>
+                <li><a href="Contact-Us.html">Contact Us</a></li>
+                <li><a href="About-Us.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+     <main>
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <div class="terms-section">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing or using the DPI Analyzer Tool website and services, you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please do not use our website or services.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>2. Use of Service</h2>
+                <p>The DPI Analyzer Tool is provided for informational and educational purposes only. You agree to use our services only for their intended purpose and in compliance with all applicable laws and regulations.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>3. User Accounts</h2>
+                <p>Some features of our service may require you to create an account. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>4. Intellectual Property</h2>
+                <p>All content, features, and functionality of the DPI Analyzer Tool, including but not limited to text, graphics, logos, and software, are the exclusive property of DPI Analyzer and are protected by international copyright, trademark, and other intellectual property laws.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>5. Limitation of Liability</h2>
+                <p>DPI Analyzer shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your access to or use of, or inability to access or use, the website or services.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>6. Modifications to Service</h2>
+                <p>We reserve the right to modify or discontinue, temporarily or permanently, the service (or any part thereof) with or without notice at any time.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>7. Governing Law</h2>
+                <p>These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which DPI Analyzer is established, without regard to its conflict of law provisions.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>8. Changes to Terms</h2>
+                <p>We reserve the right to update or change these Terms of Service at any time. Your continued use of the service after we post any modifications to the Terms of Service on this page will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Terms of Service.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>9. Contact Us</h2>
+                <p>If you have any questions about these Terms of Service, please contact us at <a href="mailto:isyed486@gmail.com">isyed486@gmail.com</a>.</p>
+            </div>
+        </div>
+    </main>
+   <footer>
+        <div class="container">
+            <a href="index.html" class="footer-logo">DPI Analyzer</a>
+            <nav>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="Terms-and-condition.html">Terms of Service</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <p>&copy; 2025 DPI Analyzer Tool. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
